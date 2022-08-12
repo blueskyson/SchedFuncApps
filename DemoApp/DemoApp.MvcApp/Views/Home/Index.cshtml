@@ -1,0 +1,17 @@
+﻿@model DemoApp.MvcApp.Models.PayloadCache
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-left">
+    <div class="row">
+        @for (int i = 0; i < Model.Payloads!.Count; i++)
+        {
+            <div class="col-xs-12 py-2">
+                <div class="card p-xs-2 p-sm-2 p-md-2 p-lg-2">
+                    <h4 class="card-title">[@Model.PayloadTimestamps[i]] | Name: @Model.Payloads[i].Name | Version: @Model.Payloads[i].Version</h4>
+                </div>
+            </div>
+        }
+    </div>
+</div>
