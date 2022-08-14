@@ -22,9 +22,34 @@ namespace FunctionApps.SubscriptionStatusScheduler
         public async Task Run([TimerTrigger("*/10 * * * * *")] TimerInfo myTimer, ILogger log)
         {
             string url = Environment.GetEnvironmentVariable("DemoUrl");
-            var response = await _client.GetAsync(url);
-            string strResult = await response.Content.ReadAsStringAsync();
-            log.LogInformation($"Get at: {DateTime.Now}. Data: {strResult}");
+            if (String.IsNullOrEmpty(url))
+            {
+                log.LogError($"Error loading environment variable \"DemoUrl\".");
+                return;
+            }
+
+            try
+            {
+                string result = await this.SendHttpGet(url);
+                log.LogInformation($"Get at: {DateTime.Now}. Response: {result}");
+            }
+            catch (Exception e)
+            {
+                log.LogError($"Error. Source: {e.Source}. Message: {e.Message}");
+            }
+        }
+
+        private async Task<string> SendHttpGet(string url)
+        {
+            try
+            {
+                var response = await _client.GetAsync(url);
+                return await response.Content.ReadAsStringAsync();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }
