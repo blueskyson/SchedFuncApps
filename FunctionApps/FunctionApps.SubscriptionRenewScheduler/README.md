@@ -44,7 +44,7 @@
 
 ## 遠端執行
 
-請先把 DemoApp 佈署到雲端，以我的例子是佈署到 Heroku 的 `jacklin-scheduler.herokuapp.com`。
+請先把 DemoApp 佈署到雲端，以我的例子是佈署到 Heroku 的 jacklin-scheduler.herokuapp.com。
 
 在 Azure 中創建 Resource Group、Storage Account、Function App
 
