@@ -7,22 +7,25 @@ using FunctionApps.Schedule;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Text;
+using Microsoft.Extensions.Options;
 
 namespace FunctionApps.SubscriptionRenewScheduler
 {
-    public class SubscriptionRenewScheduler
+    public class SubscriptionRenewScheduler : BaseScheduler
     {
-        private HttpClient _client;
+        private readonly HttpClient _client;
+        private readonly IOptions<SchedulerOptions> _options;
 
-        public SubscriptionRenewScheduler(IHttpClientFactory httpClientFactory)
+        public SubscriptionRenewScheduler(IHttpClientFactory httpClientFactory, IOptions<SchedulerOptions> options)
         {
             _client = httpClientFactory.CreateClient();
+            _options = options;
         }
 
         [FunctionName("SubscriptionRenewScheduler")]
         public async Task Run([TimerTrigger("*/20 * * * * *")] TimerInfo myTimer, ILogger log)
         {
-            string url = Environment.GetEnvironmentVariable("DemoUrl");
+            string url = _options.Value.DemoUrl;
             if (String.IsNullOrEmpty(url))
             {
                 log.LogError($"Error loading environment variable \"DemoUrl\".");

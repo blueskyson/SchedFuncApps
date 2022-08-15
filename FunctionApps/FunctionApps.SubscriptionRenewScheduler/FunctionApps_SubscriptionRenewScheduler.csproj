@@ -16,6 +16,16 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <CopyToPublishDirectory>Never</CopyToPublishDirectory>
     </None>
+
+    <!-- Configure the appsettings.json files for build and publish -->
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>      
+    </None>
+    <None Update="appsettings.Development.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
+
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FunctionApps.Schedule\FunctionApps.Schedule.csproj" />
