@@ -80,3 +80,25 @@
 ```
 > func azure functionapp logstream SubscriptionStatusScheduler
 ```
+
+## 手動觸發 Timer-Triggered Function
+
+Timer-Triggered Function 預設手動觸發的網址為:
+
+```
+https://<FunctionAppName>.azurewebsites.net/admin/functions/<FunctionName>
+```
+
+可以透過 Postman 來傳送手動觸發的請求，首先在 Azure 找到 `Home > SubscriptionRenewScheduler`，在左側找到 `Functions > App keys`，查看 `_master` 金鑰:
+
+![](./images/0.png)
+
+然後在 Postman 中選擇 `POST`，輸入以下網址。接下來切換到 `Headers` 填上 `x-functions-key` 和 `Content-Type`:
+
+![](./images/1.png)
+
+接下來切換到 `Body` 選擇 `raw`，填上 `{ "input": "test" }`。最後點擊 `Send` 送出請求，即可手動觸發 Function:
+
+![](./images/2.png)
+
+若成功觸發，會收到 Status Code 202。
