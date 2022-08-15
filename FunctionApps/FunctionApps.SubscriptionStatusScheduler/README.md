@@ -69,6 +69,7 @@
 
 |Name|Value|
 |----|-----|
+|Schedule|*/10 * * * * *|
 |DemoUrl|https://jacklin-scheduler.herokuapp.com/function/status|
 
 請先把 DemoApp 佈署到雲端，確認沒問題再設定環境變數，以我的例子是佈署到 Heroku 的 `jacklin-scheduler.herokuapp.com`。
