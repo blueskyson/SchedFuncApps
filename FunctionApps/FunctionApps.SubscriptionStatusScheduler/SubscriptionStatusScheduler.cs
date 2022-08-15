@@ -19,7 +19,7 @@ namespace FunctionApps.SubscriptionStatusScheduler
         }
 
         [FunctionName("SubscriptionStatusScheduler")]
-        public async Task Run([TimerTrigger("*/10 * * * * *")] TimerInfo myTimer, ILogger log)
+        public async Task Run([TimerTrigger("%Schedule%")] TimerInfo myTimer, ILogger log)
         {
             string url = Environment.GetEnvironmentVariable("DemoUrl");
             if (String.IsNullOrEmpty(url))
