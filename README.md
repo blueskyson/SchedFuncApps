@@ -29,7 +29,7 @@ FunctionApps 可以在本機測試或布屬到 Azure Functions。
 
 再者，[azure-functions-core-tools #122](https://github.com/Azure/azure-functions-core-tools/issues/122) 表明了 local.setting.json 已經被視作 Function App 的 appsetting.json，所以若非必要，我不推薦自己額外弄一個 appsetting.json。
 
-## [**SubscriptionStatusScheduler**](https://github.com/blueskyson/SchedFuncApps/tree/main/FunctionApps/FunctionApps.SubscriptionStatusScheduler)
+### [**SubscriptionStatusScheduler**](https://github.com/blueskyson/SchedFuncApps/tree/main/FunctionApps/FunctionApps.SubscriptionStatusScheduler)
 
 每 10 秒發送一次 HTTP GET 到 DemoApp。
 
