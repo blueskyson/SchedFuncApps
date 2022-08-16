@@ -41,7 +41,7 @@ FunctionApps 可以在本機測試或布屬到 Azure Functions。
 [TimerTrigger("%Schedule%")] TimerInfo myTimer
 ```
 
-`"%Schedule%"` 在 Function App 啟動時會把 local.setting.json 的 `"Schedule": "*/10 * * * * *"` 作為排成氣的設定值。
+`"%Schedule%"` 在 Function App 啟動時會把 local.setting.json 的 `"Schedule": "*/10 * * * * *"` 作為排程器的設定值。
 
 當佈署到 Azure 上時，需要手動設定環境變數，從 `Home > SubscriptionStatusScheduler`，在左側找到 `Settings > Configuration`，選擇 `+ New Application Setting`，填入以下鍵值對:
 
