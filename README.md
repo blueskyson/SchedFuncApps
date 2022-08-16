@@ -25,7 +25,7 @@ FunctionApps 可以在本機測試或布屬到 Azure Functions。
 
 每 20 秒發送一次 HTTP POST 到 DemoApp。
 
-我在 `Startup` 用依賴注入註冊 appsettings.json，如此一來在應用程式中就能讀取 appsettings.json 中的字串當作設定值，其好處是不需要在 Azure 環境裡手動設定環境變數，但是 `TimerTriggerAttribute` 的 **cron-style 字串不能透過此方式**來設定，否則會在 Azure 環境 Runtime Error。
+我在 `Startup` 用依賴注入註冊 appsettings.json，如此一來在應用程式中就能讀取 appsettings.json 中的字串當作設定值，其好處是不需要在 Azure 環境裡手動設定環境變數，但是 `TimerTriggerAttribute` 的 **cron-style 字串不能透過此方式**來設定。
 
 再者，[azure-functions-core-tools #122](https://github.com/Azure/azure-functions-core-tools/issues/122) 表明了 local.setting.json 已經被視作 Function App 的 appsettings.json，所以若非必要，我不推薦自己額外弄一個 appsettings.json。
 
