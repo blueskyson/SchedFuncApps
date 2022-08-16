@@ -30,7 +30,8 @@
     "Values": {
         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
         "FUNCTIONS_WORKER_RUNTIME": "dotnet",
-        "DemoUrl": "https://localhost:7051/function/status"
+        "DemoUrl": "https://localhost:7051/function/status",
+        "Schedule": "*/10 * * * * *"
     }
 }
 ```
@@ -39,7 +40,7 @@
 
 ```
 > cd FunctionApps/FunctionApps.SubscriptionStatusScheduler
-> func start
+> func start --csharp
 ```
 
 ## 遠端執行

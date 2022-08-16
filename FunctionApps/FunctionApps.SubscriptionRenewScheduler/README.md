@@ -39,7 +39,7 @@
 
 ```
 > cd FunctionApps/FunctionApps.SubscriptionRenewScheduler
-> func start
+> func start --csharp
 ```
 
 ## 遠端執行
