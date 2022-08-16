@@ -1,4 +1,4 @@
-# SchedFuncApp
+# SchedFuncApps
 
 以 Timer-Triggered 的 Azure Functions 作為 unix-style crontab 的排程器的概念驗證。
 
